@@ -254,11 +254,12 @@ def get_polynomial_decay_schedule_with_warmup(
         num_warmup_steps (`int`):
             The number of steps for the warmup phase.
         num_training_steps (`int`):
-            The total number of training steps.
+            The total number of training steps in which optimizer updates weights. 
+            This is important if you are using gradient accumulation where some steps weights are not updated. 
         lr_end (`float`, *optional*, defaults to 1e-7):
             The end LR.
         power (`float`, *optional*, defaults to 1.0):
-            Power factor.
+            Power factor. Default option (1.0) makes it linear decay with warmup.
         last_epoch (`int`, *optional*, defaults to -1):
             The index of the last epoch when resuming training.
 
